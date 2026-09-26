@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mi_organizador/presentation/screens/widgets/activity_card.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -17,28 +18,43 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 20),
-            const Text(
-              'Bienvenido a la versión de prueba de MiOrganizador. Aquí podrás administrar tus tareas, recordatorios y categorías en los próximos módulos.',
-              style: TextStyle(fontSize: 16),
+
+            Expanded(
+              child: ListView(
+                children: const [
+                  ActivityCard(
+                    icon: Icons.school,
+                    title: 'Estudiar Flutter',
+                    description: 'Leer el material del Módulo 3.',
+                    status: 'Pendiente',  
+                  ),
+                  ActivityCard(
+                    icon: Icons.cases,
+                    title: 'Preparar reunión',
+                    description: 'Preparar los correos y hacer el informe.',
+                    status: 'Pendiente',  
+                  ),
+                  ActivityCard(
+                    icon: Icons.music_note,
+                    title: 'Sacar entradas',
+                    description: 'El miércoles se habilitan las entradas al concierto.',
+                    status: 'Pendiente',  
+                  ),
+                ],
+              ), 
             ),
-            const Spacer(),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('¡Bienvenido a MiOrganizador v0.1!'),
-                      duration: Duration(seconds: 2),
-                    ),
-                  );
-                },
-                child: const Text('Comenzar'),
-              ),
-            ),
-            const SizedBox(height: 20),
           ],
         ),
       ),
+      //floatingActionButton: FloatingActionButton(
+      //        onPressed: () {
+      //          Navigator.push(
+      //            context,
+      //            MaterialPageRoute(builder: (_) => const NewActivityScreen()),
+      //          );
+      //        },
+      //        child: const Icon(Icons.add),
+      //        ),
     );
   }
 }
