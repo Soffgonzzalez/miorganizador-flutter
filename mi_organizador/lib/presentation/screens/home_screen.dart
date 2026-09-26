@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mi_organizador/presentation/screens/new_activity_screen.dart';
 import 'package:mi_organizador/presentation/screens/widgets/activity_card.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -46,15 +47,15 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
       ),
-      //floatingActionButton: FloatingActionButton(
-      //        onPressed: () {
-      //          Navigator.push(
-      //            context,
-      //            MaterialPageRoute(builder: (_) => const NewActivityScreen()),
-      //          );
-      //        },
-      //        child: const Icon(Icons.add),
-      //        ),
+      floatingActionButton: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const NewActivityScreen()),
+                );
+              },
+              child: const Icon(Icons.add),
+              ),
     );
   }
 }
