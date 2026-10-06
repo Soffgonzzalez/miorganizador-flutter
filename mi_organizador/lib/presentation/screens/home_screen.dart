@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../domain/models/activity.dart';
-import '../widgets/activity_card.dart';
+import '../../models/activity.dart';
 import 'new_activity_screen.dart';
-
+import 'widgets/activity_card.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 

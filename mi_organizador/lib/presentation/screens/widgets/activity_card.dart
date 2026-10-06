@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-import '../../domain/models/activity.dart';
-
+   import 'package:flutter/material.dart';
+   import '../../../models/activity.dart';
 class ActivityCard extends StatelessWidget {
   final Activity activity;
   final ValueChanged<ActivityStatus> onStatusChanged;
