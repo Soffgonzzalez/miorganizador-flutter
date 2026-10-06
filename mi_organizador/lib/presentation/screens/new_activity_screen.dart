@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../../domain/models/activity.dart';
 
 class NewActivityScreen extends StatefulWidget {
   const NewActivityScreen({super.key});
