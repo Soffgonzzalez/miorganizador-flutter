@@ -14,25 +14,26 @@ extension ActivityStatusX on ActivityStatus {
 }
 
 class Activity {
-  final String id;
+  final int? id;
   final String title;
   final String description;
-  final DateTime date;
+  final String date;
   final ActivityStatus status;
 
-  Activity({
-    required this.id,
+  const Activity({
+    this.id,
     required this.title,
     required this.description,
     required this.date,
-    required this.status,
+    this.status = ActivityStatus.pending,
   });
 
+  /// Crea una copia del objeto modificando únicamente los campos especificados.
   Activity copyWith({
-    String? id,
+    int? id,
     String? title,
     String? description,
-    DateTime? date,
+    String? date,
     ActivityStatus? status,
   }) {
     return Activity(
@@ -41,6 +42,31 @@ class Activity {
       description: description ?? this.description,
       date: date ?? this.date,
       status: status ?? this.status,
+    );
+  }
+
+  /// Mapeo Objeto -> Registro SQLite (Map<String, dynamic>)
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'description': description,
+      'date': date,
+      'status': status.name, // Guarda 'pending', 'inProgress', 'completed'
+    };
+  }
+
+  /// Mapeo Registro SQLite -> Objeto Dart
+  factory Activity.fromMap(Map<String, dynamic> map) {
+    return Activity(
+      id: map['id'] as int?,
+      title: map['title'] as String,
+      description: map['description'] as String,
+      date: map['date'] as String,
+      status: ActivityStatus.values.firstWhere(
+        (e) => e.name == map['status'],
+        orElse: () => ActivityStatus.pending,
+      ),
     );
   }
 }
