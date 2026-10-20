@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import 'config/app_theme.dart';
-import 'presentation/screens/home_screen.dart';
+import './config/app_theme.dart';
+import './presentation/screens/home_screen.dart';
 
 class MiOrganizadorApp extends StatelessWidget {
   const MiOrganizadorApp({super.key});
