@@ -79,7 +79,7 @@ class ActivityCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Fecha: ${activity.date.day}/${activity.date.month}/${activity.date.year}',
+                  'Fecha: ${activity.date}', // Como activity.date es String, se imprime directamente
                   style: const TextStyle(fontSize: 12, color: Colors.grey),
                 ),
                 Row(

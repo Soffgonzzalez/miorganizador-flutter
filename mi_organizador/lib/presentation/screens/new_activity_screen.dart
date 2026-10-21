@@ -38,11 +38,15 @@ class _NewActivityScreenState extends State<NewActivityScreen> {
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
+      // Formateo de DateTime a String 'YYYY-MM-DD' o ISO-8601
+      final formattedDate =
+          '${_selectedDate.year}-${_selectedDate.month.toString().padLeft(2, '0')}-${_selectedDate.day.toString().padLeft(2, '0')}';
+
       final newActivity = Activity(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        id: null,
         title: _titleController.text.trim(),
         description: _descriptionController.text.trim(),
-        date: _selectedDate,
+        date: formattedDate,
         status: _selectedStatus,
       );
       Navigator.pop(context, newActivity);
