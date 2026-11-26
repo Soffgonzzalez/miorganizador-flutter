@@ -28,7 +28,7 @@ class Activity {
     required this.status,
   });
 
-  Activity copyWith({
+  Activity copyWith({ //modificar un objeto 
     String? id,
     String? title,
     String? description,
